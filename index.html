@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+  <script type='text/javascript' src='//pl26571213.profitableratecpm.com/63/77/c1/6377c1505741f2a8cade3b211425c712.js'></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Bio Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Light Mode Colors */
+            --bg-primary: #f9fafb;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #fafafa;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-placeholder: #9ca3af;
+            --border-color: #d1d5db;
+            --input-bg: #ffffff;
+            --input-focus-ring: #ec4899;
+            --copy-button-bg: #e5e7eb;
+            --copy-button-text: #4b5563;
+            --copy-button-hover-bg: #d1d5db;
+            --copy-button-copied-bg: #a7f3d0;
+            --copy-button-copied-text: #065f46;
+            --header-bg: #ffffff;
+            --header-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            --footer-bg: #e5e7eb;
+            --footer-text: #4b5563;
+        }
+
+        html.dark {
+            /* Dark Mode Colors */
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --bg-tertiary: #374151;
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --text-placeholder: #6b7280;
+            --border-color: #4b5563;
+            --input-bg: #374151;
+            --input-focus-ring: #f472b6;
+            --copy-button-bg: #4b5563;
+            --copy-button-text: #d1d5db;
+            --copy-button-hover-bg: #6b7280;
+            --copy-button-copied-bg: #059669;
+            --copy-button-copied-text: #d1fae5;
+            --header-bg: #1f2937;
+            --header-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.1);
+            --footer-bg: #1f2937;
+            --footer-text: #9ca3af;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 1rem;
+        }
+
+        .card {
+            background-color: var(--bg-secondary);
+            transition: background-color 0.3s ease;
+            max-width: 32rem;
+            width: 100%;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            box-shadow: var(--header-shadow);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        input[type="text"], select {
+            background-color: var(--input-bg);
+            border-color: var(--border-color);
+            color: var(--text-primary);
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+
+        input[type="text"]::placeholder {
+            color: var(--text-placeholder);
+        }
+
+        input[type="text"]:focus, select:focus {
+            --tw-ring-color: var(--input-focus-ring);
+            border-color: var(--input-focus-ring);
+        }
+
+        .instagram-gradient {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        #bioOutput {
+            min-height: 120px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+
+        #placeholderText {
+            color: var(--text-placeholder);
+        }
+
+        #copyButton {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: var(--copy-button-bg);
+            color: var(--copy-button-text);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        #copyButton:hover:not(:disabled) {
+            background-color: var(--copy-button-hover-bg);
+            transform: scale(1.1);
+        }
+
+        #copyButton:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        #copyButton.copied {
+            background-color: var(--copy-button-copied-bg);
+            color: var(--copy-button-copied-text);
+            transform: scale(1.1);
+        }
+
+        #copyButton i {
+            font-size: 14px;
+        }
+
+        #themeToggle {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 1.25rem;
+            padding: 0.5rem;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s ease, background-color 0.2s ease;
+        }
+
+        #themeToggle:hover {
+            color: var(--text-primary);
+            background-color: rgba(128, 128, 128, 0.1);
+        }
+
+        .ad-container {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                padding: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            .main-content {
+                padding: 0.5rem;
+            }
+
+            .ad-container iframe[width="300"] {
+                width: 100%;
+                max-width: 320px;
+                height: 50px;
+            }
+
+            .ad-container iframe[width="468"] {
+                width: 100%;
+                max-width: 320px;
+                height: 50px;
+            }
+        }
+    </style>
+  <script type='text/javascript' src='//pl26571213.profitableratecpm.com/63/77/c1/6377c1505741f2a8cade3b211425c712.js'></script>
+</head>
+<body>
+<script type='text/javascript' src='//pl26571222.profitableratecpm.com/d3/af/2c/d3af2cf3ca107aabc12d5b7c7d742b9e.js'></script>
+    <header class="w-full py-3 shadow-sm">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-xl font-bold" style="background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    Instagram Bio Pro
+                </span>
+                <span class="text-xl">✨</span>
+            </div>
+            <button id="themeToggle" title="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
+<script type='text/javascript' src='//pl26551000.profitableratecpm.com/bd/d9/a1/bdd9a15c2b00c386b55203cdcf971895.js'></script>
+    <main class="main-content">
+        <div class="card p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold text-center mb-1">Craft Your Perfect Instagram Bio</h2>
+            <p class="text-center text-secondary mb-4">Make your profile stand out!</p>
+
+            <!-- Ad 1: 728x90 Banner Below Title -->
+            <div class="ad-container">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key': 'ce823e196abfef1636607641877ab062',
+                        'format': 'iframe',
+                        'height': 90,
+                        'width': 728,
+                        'params': {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/ce823e196abfef1636607641877ab062/invoke.js"></script>
+            </div>
+
+            <div class="mb-4">
+                <label for="name" class="block text-sm font-medium text-secondary mb-1">Your Name (Optional):</label>
+                <input type="text" id="name" name="name" placeholder="e.g., Alex" class="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-0">
+            </div>
+
+            <div class="mb-4">
+                <label for="hobbies" class="block text-sm font-medium text-secondary mb-1">Your Hobbies:</label>
+                <input type="text" id="hobbies" name="hobbies" placeholder="e.g., painting, hiking, photography" class="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-0">
+            </div>
+
+            <div class="mb-4">
+                <label for="keywords" class="block text-sm font-medium text-secondary mb-1">Keywords/About You:</label>
+                <input type="text" id="keywords" name="keywords" placeholder="e.g., travel, coffee, coder" class="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-0">
+            </div>
+
+            <div class="mb-4">
+                <label for="tone" class="block text-sm font-medium text-secondary mb-1">Desired Tone:</label>
+                <select id="tone" name="tone" class="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-0 appearance-none">
+                    <option value="witty">Witty</option>
+                    <option value="professional">Professional</option>
+                    <option value="casual">Casual</option>
+                    <option value="inspirational">Inspirational</option>
+                    <option value="funny">Funny</option>
+                    <option value="mysterious">Mysterious</option>
+                    <option value="minimalist">Minimalist</option>
+                    <option value="bold">Bold</option>
+                    <option value="creative">Creative</option>
+                </select>
+            </div>
+
+            <!-- Ad 2: 2x Banner Above Generate Button -->
+            <div class="ad-container">
+				<script async="async" data-cfasync="false" src="//pl26564503.profitableratecpm.com/2def358636107f71a0fcdd3d38551702/invoke.js"></script>
+<div id="container-2def358636107f71a0fcdd3d38551702"></div>
+            </div>
+
+            <button id="generateBtn" class="w-full instagram-gradient text-white font-semibold py-2.5 px-4 rounded-md shadow-sm hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 transition duration-150 ease-in-out mb-4">
+                Generate Bio ✨
+            </button>
+
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-secondary mb-1">Generated Bio:</label>
+                <div id="bioOutput" class="w-full p-3 pr-12 border rounded-md min-h-[120px] whitespace-pre-wrap relative">
+                    <span id="placeholderText">Your bio will appear here...</span>
+                    <button id="copyButton" title="Copy to Clipboard" disabled>
+                        <i class="far fa-copy"></i>
+                    </button>
+                </div>
+                <p id="copyFeedback" class="text-xs text-green-600 dark:text-green-400 mt-1 h-4"></p>
+                <p id="errorFeedback" class="text-xs text-red-600 dark:text-red-400 mt-1 h-4"></p>
+            </div>
+          
+          <!-- Ad 2: 2x Banner Above Generate Button -->
+            <div class="ad-container">
+				<script async="async" data-cfasync="false" src="//pl26574460.profitableratecpm.com/781eb3a28629bf580e1866167a2778ba/invoke.js"></script>
+<div id="container-781eb3a28629bf580e1866167a2778ba"></div>
+            </div>
+          
+            <!-- Ad 3: 320x50 Banner Below Generated Bio -->
+            <div class="ad-container">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key': '9a8726cc2c23c3434e02971feb222d3f',
+                        'format': 'iframe',
+                        'height': 50,
+                        'width': 320,
+                        'params': {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/9a8726cc2c23c3434e02971feb222d3f/invoke.js"></script>
+            </div>
+
+            <p class="text-xs text-red-600 dark:text-red-400 text-center mt-4">
+                <strong>Security Reminder:</strong> Never put API keys directly in website code. Use a secure backend server.
+            </p>
+        </div>
+    </main>
+
+    <div class="ad-container">
+        <script type="text/javascript">
+            atOptions = {
+                'key': '0d1a2e67f9d495846471a00609f63065',
+                'format': 'iframe',
+                'height': 60,
+                'width': 468,
+                'params': {}
+            };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/0d1a2e67f9d495846471a00609f63065/invoke.js"></script>
+    </div>
+
+    <footer class="w-full py-3 mt-4">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm">© 2025 Instagram Bio Pro. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const generateBtn = document.getElementById('generateBtn');
+        const nameInput = document.getElementById('name');
+        const hobbiesInput = document.getElementById('hobbies');
+        const keywordsInput = document.getElementById('keywords');
+        const toneSelect = document.getElementById('tone');
+        const bioOutput = document.getElementById('bioOutput');
+        const placeholderText = document.getElementById('placeholderText');
+        const copyButton = document.getElementById('copyButton');
+        const copyFeedback = document.getElementById('copyFeedback');
+        const errorFeedback = document.getElementById('errorFeedback');
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        // Bio Generation Data
+        const bioIntros = [
+            "Hi, I'm", "Welcome to", "Just a", "Living as", "Chasing my",
+            "Crafting my", "Exploring the", "Spreading some", "Creating my", "Embracing every",
+            "Finding joy in", "Building my", "Dreaming of", "Sharing my", "Inspiring with",
+            "Loving the", "Turning dreams into", "Writing my", "Seeking new", "Growing through"
+        ];
+        const bioMiddles = {
+            travel: ["adventures", "wanderlust", "journeys", "destinations", "paths"],
+            coffee: ["brews", "caffeine", "latte vibes", "coffee breaks", "espresso"],
+            coder: ["code", "tech", "pixels", "apps", "digital dreams"],
+            foodie: ["flavors", "bites", "cuisine", "tastes", "dishes"],
+            fitness: ["sweat", "goals", "strength", "health", "energy"],
+            art: ["creativity", "colors", "designs", "visions", "artworks"],
+            music: ["beats", "tunes", "rhythms", "melodies", "vibes"],
+            fashion: ["style", "trends", "looks", "outfits", "vogue"],
+            books: ["stories", "pages", "words", "novels", "reads"],
+            nature: ["wilderness", "greenery", "outdoors", "scapes", "earth"],
+            painting: ["brushstrokes", "canvases", "colors", "art", "creations"],
+            hiking: ["trails", "mountains", "nature", "adventures", "paths"],
+            photography: ["shots", "moments", "lenses", "captures", "frames"],
+            dancing: ["moves", "rhythms", "beats", "grooves", "dance"],
+            gaming: ["quests", "levels", "worlds", "scores", "games"]
+        };
+        const bioOutros = [
+            "Join my journey!", "Let's connect soon!", "Follow my vibe!", "Stay tuned always!", "DM for collabs!",
+            "Be your best!", "Keep shining bright!", "Live boldly now!", "Make waves daily!", "Dream big always!",
+            "Stay real forever!", "Create every day!", "Inspire the world!", "Love life fully!", "Grow every moment!"
+        ];
+        const bioEmojis = {
+            witty: ["😉", "😎", "🤓", "😜", "😏"],
+            professional: ["💼", "📈", "🤝", "💡", "📊"],
+            casual: ["✌️", "😊", "🌈", "☀️", "😌"],
+            inspirational: ["🌟", "🚀", "💖", "🌹","🌱", "✨"],
+            funny: ["😂", "🤡", "🙈", "🍕", "😹"],
+            mysterious: ["🕶️", "🌙", "🔮", "👁️‍🗨️", "🌌"],
+            minimalist: ["⚪", "⚫", "➖", "▫️", "▪️"],
+            bold: ["💥", "🔥", "⚡", "💪", "🐯", "😈"],
+            creative: ["🎨", "✍️", "📸", "🎭", "🌈"]
+        };
+
+        // Helper Functions
+        const getRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+        // Simulated API Call
+        async function generateBio(name, hobbies, keywords, tone) {
+            console.log(`Simulating API call for name: "${name}", hobbies: "${hobbies}", keywords: "${keywords}", tone: "${tone}"`);
+
+            placeholderText.textContent = 'Generating...';
+            copyButton.disabled = true;
+            copyButton.classList.remove('copied');
+            copyButton.innerHTML = '<i class="far fa-copy"></i>';
+            copyFeedback.textContent = '';
+            errorFeedback.textContent = '';
+
+            await new Promise(resolve => setTimeout(resolve, 800));
+
+            if (!keywords && !hobbies) {
+                errorFeedback.textContent = 'Please enter keywords or hobbies.';
+                placeholderText.textContent = 'Your bio will appear here...';
+                return '';
+            }
+
+            const nameWords = name ? name.split(' ') : [];
+            const hobbyWords = hobbies ? hobbies.split(',').map(h => h.trim()) : [];
+            const keywordWords = keywords ? keywords.split(',').map(k => k.trim()) : [];
+            const emoji = getRandom(bioEmojis[tone] || bioEmojis.casual);
+
+            // Initialize bio components
+            let bioWords = [];
+            let intro = getRandom(bioIntros).split(' ');
+            let middlePart = 'life';
+            let outro = getRandom(bioOutros).split(' ');
+
+            // Select middle part based on hobbies or keywords
+            const allInputs = [...hobbyWords, ...keywordWords].map(w => w.toLowerCase());
+            const usedCategory = Object.keys(bioMiddles).find(category =>
+                allInputs.some(input => input.includes(category))
+            );
+            if (usedCategory) {
+                middlePart = getRandom(bioMiddles[usedCategory]);
+            } else if (allInputs[0]) {
+                middlePart = allInputs[0];
+            }
+
+            // Construct bio based on tone
+            if (tone === 'minimalist') {
+                bioWords = [...hobbyWords.slice(0, 1), ...keywordWords.slice(0, 1), emoji];
+            } else if (tone === 'professional') {
+                bioWords = [...nameWords, 'Professional', middlePart, 'Seeking', 'connections', emoji, ...outro];
+            } else {
+                bioWords = [...intro, ...nameWords, middlePart, ...hobbyWords.slice(0, 2), ...keywordWords.slice(0, 2), emoji, ...outro];
+            }
+
+            // Adjust to exactly 20 words
+            if (bioWords.length > 20) {
+                bioWords = bioWords.slice(0, 19);
+                bioWords.push(emoji);
+            } else if (bioWords.length < 20) {
+                const fillerWords = ['passionate', 'lover', 'enthusiast', 'dreamer', 'creator', 'adventurer'];
+                while (bioWords.length < 19) {
+                    bioWords.push(getRandom(fillerWords));
+                }
+                bioWords.push(emoji);
+            }
+
+            // Join words into bio
+            let generatedBio = bioWords.join(' ').trim().replace(/\s+/g, ' ');
+            return generatedBio;
+        }
+
+        // Generate Button Event Listener
+        generateBtn.addEventListener('click', async () => {
+            const name = nameInput.value.trim();
+            const hobbies = hobbiesInput.value.trim();
+            const keywords = keywordsInput.value.trim();
+            const tone = toneSelect.value;
+
+            const generatedBioText = await generateBio(name, hobbies, keywords, tone);
+            if (!generatedBioText) return;
+
+            placeholderText.style.display = 'none';
+            const bioTextNode = document.createTextNode(generatedBioText);
+
+            const childNodes = Array.from(bioOutput.childNodes);
+            childNodes.forEach(node => {
+                if (node !== placeholderText && node !== copyButton) {
+                    bioOutput.removeChild(node);
+                }
+            });
+            bioOutput.insertBefore(bioTextNode, copyButton);
+
+            bioOutput.classList.add('fade-in');
+            bioOutput.addEventListener('animationend', () => {
+                bioOutput.classList.remove('fade-in');
+            }, { once: true });
+
+            copyButton.disabled = false;
+        });
+
+        // Copy Button Event Listener
+        copyButton.addEventListener('click', () => {
+            // Extract text, excluding placeholder and button
+            const textToCopy = bioOutput.textContent.trim().replace(copyButton.textContent, '').replace(placeholderText.textContent, '').trim();
+
+            if (textToCopy && !copyButton.disabled) {
+                // Try Clipboard API first
+                navigator.clipboard.writeText(textToCopy)
+                    .then(() => {
+                        copyButton.innerHTML = '<i class="fas fa-check"></i>';
+                        copyButton.classList.add('copied');
+                        copyFeedback.textContent = 'Copied!';
+                        setTimeout(() => {
+                            copyButton.innerHTML = '<i class="far fa-copy"></i>';
+                            copyButton.classList.remove('copied');
+                            copyFeedback.textContent = '';
+                        }, 1500);
+                    })
+                    .catch(err => {
+                        console.warn('Clipboard API failed, trying fallback: ', err);
+                        // Fallback method: Create a temporary textarea
+                        const textarea = document.createElement('textarea');
+                        textarea.value = textToCopy;
+                        textarea.style.position = 'fixed';
+                        textarea.style.opacity = '0';
+                        document.body.appendChild(textarea);
+                        textarea.select();
+                        try {
+                            document.execCommand('copy');
+                            copyButton.innerHTML = '<i class="fas fa-check"></i>';
+                            copyButton.classList.add('copied');
+                            copyFeedback.textContent = 'Copied!';
+                            setTimeout(() => {
+                                copyButton.innerHTML = '<i class="far fa-copy"></i>';
+                                copyButton.classList.remove('copied');
+                                copyFeedback.textContent = '';
+                            }, 1500);
+                        } catch (fallbackErr) {
+                            console.error('Fallback copy failed: ', fallbackErr);
+                            copyFeedback.textContent = 'Copy failed!';
+                            setTimeout(() => { copyFeedback.textContent = ''; }, 1500);
+                        } finally {
+                            document.body.removeChild(textarea);
+                        }
+                    });
+            } else {
+                copyFeedback.textContent = 'Nothing to copy!';
+                setTimeout(() => { copyFeedback.textContent = ''; }, 1500);
+            }
+        });
+
+        // Theme Toggle Logic
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                htmlElement.classList.add('dark');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                themeToggle.title = 'Toggle Light Mode';
+            } else {
+                htmlElement.classList.remove('dark');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                themeToggle.title = 'Toggle Dark Mode';
+            }
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = htmlElement.classList.contains('dark');
+            const newTheme = isDark ? 'light' : 'dark';
+            applyTheme(newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // Initial State & Theme Check
+        function checkInitialState() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme) {
+                applyTheme(savedTheme);
+            } else if (prefersDark) {
+                applyTheme('dark');
+            } else {
+                applyTheme('light');
+            }
+
+            const initialTextContent = bioOutput.textContent.trim().replace(copyButton.textContent, '').replace(placeholderText.textContent, '').trim();
+            if (!initialTextContent && placeholderText) {
+                placeholderText.style.display = 'inline';
+                copyButton.disabled = true;
+                copyButton.innerHTML = '<i class="far fa-copy"></i>';
+                copyButton.classList.remove('copied');
+            } else if (placeholderText) {
+                placeholderText.style.display = 'none';
+                copyButton.disabled = false;
+            }
+        }
+        checkInitialState();
+    </script>
+<script type='text/javascript' src='//pl26571222.profitableratecpm.com/d3/af/2c/d3af2cf3ca107aabc12d5b7c7d742b9e.js'></script>
+</body>
+</html>
